@@ -1,3 +1,7 @@
+// Cairo Crawford PantherID: 6389250
+// Cedric Cherestal PantherID: 5512167
+// Camila Castaneda PantherID: 6059028
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -18,14 +22,14 @@ pthread_mutex_t mutex;
 void *thread1() {
     int i = 0
     while (i < MAX_UPDATES) {
-        if (pthread_mutex_trylock(&mutex) == 0) {
+        if (pthread_mutex_trylock(&mutex) == 0) { // entry section
             /* Do your Job!*/
            
             pthread_mutex_unlock(&mutex);
         }
     }
     
-    printf("I'm thread1, I did ....\n");
+    printf("I'm thread1, I did ....\n"); // remainder section
     return NULL;
 }
 
