@@ -30,6 +30,7 @@ void *thread1() {
                bonusCount++;
            }
             pthread_mutex_unlock(&mutex);
+            i+=100;
         }
     }
     
