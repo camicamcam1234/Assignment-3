@@ -41,7 +41,6 @@ void *thread2() {
     int i = 0;
     while (i < MAX_UPDATES) {
         if (pthread_mutex_trylock(&mutex) == 0) {
-            
             counter->value++;
             pthread_mutex_trylock(&mutex);
             i++;
