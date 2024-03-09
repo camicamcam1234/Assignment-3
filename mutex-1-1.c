@@ -40,10 +40,14 @@ void *thread1() {
 void *thread2() {
     int i = 0;
     while (i < MAX_UPDATES) {
-        if () {
+        if (pthread_mutex_trylock(&mutex) == 0) {
             
+            counter->value++;
+            pthread_mutex_trylock(&mutex);
+            i++;
+            
+        }       
     }
-}
 
     printf("I'm thread1, I did ....\n"); // remainder section
     return NULL;
