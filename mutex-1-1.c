@@ -28,9 +28,11 @@ void *thread1() {
            if (counter->value % 100 == 0) {
                counter->value += 100;
                bonusCount++;
+           } else {
+               counter->value++;
            }
             pthread_mutex_unlock(&mutex);
-            i+=100;
+            i++;
         }
     }
     
@@ -41,12 +43,12 @@ void *thread1() {
 void *thread2() {
     int i = 0;
     while (i < MAX_UPDATES) {
-        if (pthread_mutex_trylock(&mutex) == 0) {
-            counter->value++;
-            pthread_mutex_trylock(&mutex);
-            i++;
-            
-        }       
+        pthread_mutex_trylock(&mutex);
+        
+        counter->value++;
+        pthread_mutex_trylock(&mutex);
+        i++;
+                   
     }
 
     printf("I'm thread1, I did ....\n"); // remainder section
