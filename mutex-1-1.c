@@ -20,7 +20,8 @@ pthread_mutex_t mutex;
 
 /* Thread1 function */
 void *thread1() {
-    int i = 0
+    int i = 0;
+    int bonusCount = 0;
     while (i < MAX_UPDATES) {
         if (pthread_mutex_trylock(&mutex) == 0) { // entry section
             /* Do your Job!*/
@@ -29,6 +30,18 @@ void *thread1() {
         }
     }
     
+    printf("I'm thread1, I did ....\n"); // remainder section
+    return NULL;
+}
+
+void *thread2() {
+    int i = 0;
+    while (i < MAX_UPDATES) {
+        if () {
+            
+    }
+}
+
     printf("I'm thread1, I did ....\n"); // remainder section
     return NULL;
 }
