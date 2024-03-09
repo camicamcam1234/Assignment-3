@@ -36,7 +36,7 @@ void *thread1() {
         }
     }
     
-    printf("I'm thread1, I did ....\n"); // remainder section
+    printf("thread1, got %d bonuses. \n"); // remainder section
     return NULL;
 }
 
@@ -51,7 +51,7 @@ void *thread2() {
                    
     }
 
-    printf("I'm thread1, I did ....\n"); // remainder section
+    printf("thread2 \n"); // remainder section
     return NULL;
 }
 
