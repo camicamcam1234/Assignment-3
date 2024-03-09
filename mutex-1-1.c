@@ -25,7 +25,10 @@ void *thread1() {
     while (i < MAX_UPDATES) {
         if (pthread_mutex_trylock(&mutex) == 0) { // entry section
             /* Do your Job!*/
-           
+           if (counter->value % 100 == 0) {
+               counter->value += 100;
+               bonusCount++;
+           }
             pthread_mutex_unlock(&mutex);
         }
     }
